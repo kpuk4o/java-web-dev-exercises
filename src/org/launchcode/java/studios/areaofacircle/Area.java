@@ -24,13 +24,32 @@ public class Area {
     public void calculateArea() {
         //Ask the user for the radius
         Scanner input = new Scanner(System.in);
-        Double myUsersRadius = input.nextDouble();
+        try {
+            boolean keepOnLooping = true;
+            while(keepOnLooping) {
+                Double myUsersRadius = input.nextDouble();
 
-        //Calculate the area = pi * radius^2
-        Double area = Circle.getArea(myUsersRadius);
+                //check if radius is negative
+                if (myUsersRadius < 0) {
+                //print an error message
+                System.out.println("The radius cannot be a negative number!");
+                // prompt the user again
 
-        // print the result/area
-        System.out.println(area);
+                } else {
+                    //KCCO
+                    //Calculate the area = pi * radius^2
+                    Double area = Circle.getArea(myUsersRadius);
+
+                    // print the result/area
+                    System.out.println(area);
+
+                    // Tell the while loop to exit
+                    keepOnLooping = false;
+                }
+            }
+        } catch(Exception error) {
+            System.out.println("The radius must be a number!");
+        }
 
         //close the scanner
         input.close();
