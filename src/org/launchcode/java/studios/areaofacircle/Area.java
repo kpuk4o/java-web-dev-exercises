@@ -24,6 +24,7 @@ public class Area {
     public void calculateArea() {
         //Ask the user for the radius
         Scanner input = new Scanner(System.in);
+        System.out.println("Enter the radius of the cirle: ");
         try {
             boolean keepOnLooping = true;
             while(keepOnLooping) {
